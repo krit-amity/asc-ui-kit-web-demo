@@ -1,25 +1,40 @@
 import "./styles.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 // @ts-ignore
 import { AmityUiKitProvider, AmityUiKitSocial } from "@amityco/ui-kit";
 
 import Login from "./Login";
 
-const apiKey = "b3bee90c39d9a5644831d84e5a0d1688d100ddebef3c6e78";
-
 export default function App() {
-  const [userId, setUserId] = useState();
+  const [state, setState] = useState<{
+    id: string;
+    network: string;
+    region: string;
+  }>({
+    id: "",
+    network: "",
+    region: "",
+  });
+
+  useEffect(() => {
+    const url = window.location.href;
+    const urlParams = new URLSearchParams(url.split("?")[1]);
+    const id = urlParams.get("id") ?? "";
+    const region = urlParams.get("region") ?? "";
+    const network = urlParams.get("network") ?? "";
+    setState({ id, region, network });
+    window.history.replaceState(null, "ASC", "/")
+  }, []);
 
   return (
     <div className="App">
-      {!userId ? (
-        <Login onSubmit={setUserId} />
+      {!state.id ? (
+        <Login onSubmit={setState} />
       ) : (
         <AmityUiKitProvider
-          key={userId}
-          apiKey={apiKey}
-          userId={userId}
-          displayName={userId}
+          apiRegion={state.region}
+          apiKey={state.network}
+          userId={state.id}
         >
           <AmityUiKitSocial />
         </AmityUiKitProvider>

@@ -1,11 +1,5 @@
-# [demo](https://krit-amity.github.io/asc-ui-kit-demo/)
+ [demo](https://krit-amity.github.io/asc-ui-kit-demo/)
 
-[Try me on codesandbox!](https://codesandbox.io/s/github/AmityCo/Amity-Social-Cloud-Web-Sample-Apps/tree/main/ui-kit-app)
+Auto login `http://localhost:3001/?id={id}&region={region}&network={network}`
 
-## Stack used
 
-- ReactJS through [CRA](https://reactjs.org/docs/create-a-new-react-app.html)
-
-## Scope of demo
-
-From a simple `npx create-react-app XXX` boilerplate, we've added the minimal amount of code to showcase how to use Amity's Ui-Kit for web.
