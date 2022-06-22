@@ -16,15 +16,15 @@ export default function App() {
     region: "",
   });
 
-  useEffect(() => {
-    const url = window.location.href;
-    const urlParams = new URLSearchParams(url.split("?")[1]);
-    const id = urlParams.get("id") ?? "";
-    const region = urlParams.get("region") ?? "";
-    const network = urlParams.get("network") ?? "";
-    setState({ id, region, network });
-    window.history.replaceState(null, "ASC", "/")
-  }, []);
+  // useEffect(() => {
+  //   const url = window.location.href;
+  //   const urlParams = new URLSearchParams(url.split("?")[1]);
+  //   const id = urlParams.get("id") ?? "";
+  //   const region = urlParams.get("region") ?? "";
+  //   const network = urlParams.get("network") ?? "";
+  //   setState({ id, region, network });
+  //   window.history.replaceState(null, "ASC", "/")
+  // }, []);
 
   return (
     <div className="App">
