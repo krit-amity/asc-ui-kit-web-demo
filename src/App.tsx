@@ -10,6 +10,7 @@ export default function App() {
     id: string;
     network: string;
     region: string;
+    authToken?: string | null;
   }>({
     id: "",
     network: "",
@@ -22,7 +23,8 @@ export default function App() {
     const id = urlParams.get("id") ?? "";
     const region = urlParams.get("region") ?? "";
     const network = urlParams.get("network") ?? "";
-    setState({ id, region, network });
+    const authToken = urlParams.get("authToken");
+    setState({ id, region, network, authToken });
     // window.history.replaceState(null, "ASC", "/")
   }, []);
 
@@ -35,6 +37,7 @@ export default function App() {
           apiRegion={state.region}
           apiKey={state.network}
           userId={state.id}
+          authToken={state.authToken}
         >
           <AmityUiKitSocial />
         </AmityUiKitProvider>
