@@ -1,32 +1,27 @@
 import "./styles.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 // @ts-ignore
 import { AmityUiKitProvider, AmityUiKitSocial } from "@amityco/ui-kit";
 
 import Login from "./Login";
+
+const initState = () => {
+  const url = window.location.href;
+  const urlParams = new URLSearchParams(url.split("?")[1]);
+  const id = urlParams.get("id") ?? "";
+  const region = urlParams.get("region") ?? "";
+  const network = urlParams.get("network") ?? "";
+  const authToken = urlParams.get("authToken") ?? undefined;
+  return { id, region, network, authToken };
+};
 
 export default function App() {
   const [state, setState] = useState<{
     id: string;
     network: string;
     region: string;
-    authToken?: string | null;
-  }>({
-    id: "",
-    network: "",
-    region: "",
-  });
-
-  useEffect(() => {
-    const url = window.location.href;
-    const urlParams = new URLSearchParams(url.split("?")[1]);
-    const id = urlParams.get("id") ?? "";
-    const region = urlParams.get("region") ?? "";
-    const network = urlParams.get("network") ?? "";
-    const authToken = urlParams.get("authToken");
-    setState({ id, region, network, authToken });
-    // window.history.replaceState(null, "ASC", "/")
-  }, []);
+    authToken?: string;
+  }>(initState);
 
   return (
     <div className="App">
