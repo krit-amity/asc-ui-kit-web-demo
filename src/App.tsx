@@ -1,7 +1,7 @@
 import "./styles.css";
 import { useState } from "react";
 // @ts-ignore
-import { AmityUiKitProvider, AmityUiKitSocial } from "@amityco/ui-kit";
+import { AmityUiKitProvider, AmityUiKitSocial } from "@amityco/ui-kit-open-source";
 
 import Login from "./Login";
 
