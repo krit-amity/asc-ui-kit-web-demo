@@ -1,26 +1,24 @@
 import React, { useState, useMemo, useEffect } from "react";
 import styled from "styled-components";
-
-import { PageTypes, PageTypesToTitle } from "~/social/constants";
-
-import MainLayout from "~/social/layouts/Main";
-
-import CommunitySideMenu from "~/social/components/CommunitySideMenu";
-import SearchSideMenu from "~/social/components/SearchSideMenu";
-import NavBar from "~/social/components/NavBar";
-
-import ExplorePage from "~/social/pages/Explore";
-import NewsFeedPage from "~/social/pages/NewsFeed";
-import CommunityFeedPage from "~/social/pages/CommunityFeed";
-import UserFeedPage from "~/social/pages/UserFeed";
-import CategoryCommunitiesPage from "~/social/pages/CategoryCommunities";
-import CommunityEditPage from "~/social/pages/CommunityEdit";
-import ProfileSettings from "~/social/components/ProfileSettings";
-import CategoriesList from "~/social/pages/CategoriesList";
-
-import { useNavigation } from "~/social/providers/NavigationProvider";
-import { useSDK } from "~/core/hocs/withSDK";
-import PostDetail from "~/social/pages/PostDetail";
+import { NavBar } from "./NavBar";
+import MainLayout from "./Main";
+import { PageTypesToTitle } from "./constants";
+import SearchSideMenu from "./SearchSideMenu";
+import {
+  PageTypes,
+  CommunitySideMenu,
+  ExplorePage,
+  NewsFeedPage,
+  CommunityFeedPage,
+  UserFeedPage,
+  CategoryCommunitiesPage,
+  CommunityEditPage,
+  ProfileSettings,
+  CategoriesList,
+  useNavigation,
+  useSDK,
+  PostDetail,
+} from "@amityco/ui-kit-open-source";
 
 const ApplicationContainer = styled.div`
   height: 100%;

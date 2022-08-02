@@ -4,6 +4,7 @@ import { useState } from "react";
 import { AmityUiKitProvider, AmityUiKitSocial } from "@amityco/ui-kit-open-source";
 
 import Login from "./Login";
+import { AmityUiKitSocialResponsive } from "./package/AmityUiKitSocialResponsive";
 
 const initState = () => {
   const url = window.location.href;
@@ -34,7 +35,7 @@ export default function App() {
           userId={state.id}
           authToken={state.authToken}
         >
-          <AmityUiKitSocial />
+          <AmityUiKitSocialResponsive />
         </AmityUiKitProvider>
       )}
     </div>
