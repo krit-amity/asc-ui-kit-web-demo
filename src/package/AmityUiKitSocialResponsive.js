@@ -72,6 +72,7 @@ export const AmityUiKitSocialResponsive = () => {
 
   // eslint-disable-next-line no-shadow
   const handleToggleAside = (page) => {
+    console.log("handleToggleAside")
     if (asidePage !== page) {
       setAsidePage(page);
       setIsShowAside(true);

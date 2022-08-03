@@ -3,25 +3,17 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import { Icons } from "@amityco/ui-kit-open-source";
 const { Bars, Search } = Icons;
-const BarsIcon = styled(Bars)`
-  font-size: 20px;
-  cursor: pointer;
-  color: ${({ active, theme }) =>
-    active ? theme.palette.primary.main : "#000"};
-`;
 
-const SearchIcon = styled(Search)`
-  font-size: 20px;
-  cursor: pointer;
-`;
 const Nav = styled.div`
   display: flex;
+  flex: 1;
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
   height: 60px;
 `;
 const CurrentPageText = styled.div`
+  flex: 1;
   font-size: 18px;
   font-weight: bold;
   text-transform: capitalize;
@@ -30,9 +22,13 @@ const CurrentPageText = styled.div`
 const NavBar = ({ onClickBars, onClickSearch, currentPage, barIconActive }) => {
   return (
     <Nav>
-      <BarsIcon active={barIconActive} onClick={onClickBars} />
+      <div style={{ flex: 1, height: 40 }} onClick={onClickBars}>
+        <Bars />
+      </div>
       <CurrentPageText>{currentPage}</CurrentPageText>
-      <SearchIcon onClick={onClickSearch} />
+      <div style={{ flex: 1, height: 40 }} onClick={onClickSearch}>
+        <Search />
+      </div>
     </Nav>
   );
 };

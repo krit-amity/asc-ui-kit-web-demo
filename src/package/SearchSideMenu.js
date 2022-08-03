@@ -5,7 +5,7 @@ import {SideMenu} from "@amityco/ui-kit-open-source";
 import {UiKitSocialSearch} from "@amityco/ui-kit-open-source";
 
 const SocialSearch = styled(UiKitSocialSearch)`
-  background: ${({ theme }) => theme.palette.system.background};
+  background: ${({ theme }) => theme.palette?.system?.background};
   flex: 1;
 `;
 const SearchContainer = styled.div`

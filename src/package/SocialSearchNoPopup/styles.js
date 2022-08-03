@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
 import InputAutocomplete from '~/core/components/InputAutocompleteNoPopup';
-import { Icons } from "@amityco/ui-kit-open-source";
-const {  Search } = Icons;
+import Search from '~/icons/Search';
 
 export const SearchIconContainer = styled.div`
   display: flex;
