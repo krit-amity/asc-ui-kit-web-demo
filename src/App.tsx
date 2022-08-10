@@ -1,19 +1,25 @@
 import "./styles.css";
 import { useState } from "react";
-// @ts-ignore
-import { AmityUiKitProvider, AmityUiKitSocial } from "@amityco/ui-kit-open-source";
+
+import {
+  AmityUiKitProvider,
+  AmityUiKitSocial,
+  AmityUiKitChat,
+  // @ts-ignore
+} from "@amityco/ui-kit-open-source";
 
 import Login from "./Login";
-import { AmityUiKitSocialResponsive } from "./package/AmityUiKitSocialResponsive";
 
 const initState = () => {
   const url = window.location.href;
-  const urlParams = new URLSearchParams(url.split("?")[1]);
+  const [path, params] = url.split("?");
+  const page = path.split("/").pop() ?? "social";
+  const urlParams = new URLSearchParams(params);
   const id = urlParams.get("id") ?? "";
   const region = urlParams.get("region") ?? "";
   const network = urlParams.get("network") ?? "";
   const authToken = urlParams.get("authToken") ?? undefined;
-  return { id, region, network, authToken };
+  return { id, region, network, authToken, page };
 };
 
 export default function App() {
@@ -22,6 +28,7 @@ export default function App() {
     network: string;
     region: string;
     authToken?: string;
+    page?: string;
   }>(initState);
 
   return (
@@ -35,7 +42,7 @@ export default function App() {
           userId={state.id}
           authToken={state.authToken}
         >
-          <AmityUiKitSocial />
+          {state.page === "chat" ? <AmityUiKitChat /> : <AmityUiKitSocial />}
         </AmityUiKitProvider>
       )}
     </div>
