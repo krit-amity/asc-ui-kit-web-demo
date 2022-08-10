@@ -35,7 +35,7 @@ export default function App() {
           userId={state.id}
           authToken={state.authToken}
         >
-          <AmityUiKitSocialResponsive />
+          <AmityUiKitSocial />
         </AmityUiKitProvider>
       )}
     </div>
