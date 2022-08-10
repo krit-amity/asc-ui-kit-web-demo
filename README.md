@@ -9,4 +9,4 @@
 | `authToken` | auth Token       |
 
 example url 
-`http://localhost:3001/social?id={id}&region={region}&network={network}`
+`http://localhost:3001/?page=social&id={id}&region={region}&network={network}`
