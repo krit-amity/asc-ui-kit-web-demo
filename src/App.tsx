@@ -12,9 +12,9 @@ import Login from "./Login";
 
 const initState = () => {
   const url = window.location.href;
-  const [path, params] = url.split("?");
-  const page = path.split("/").pop() ?? "social";
+  const params = url.split("?")[1];
   const urlParams = new URLSearchParams(params);
+  const page = urlParams.get("page") ?? "social";
   const id = urlParams.get("id") ?? "";
   const region = urlParams.get("region") ?? "";
   const network = urlParams.get("network") ?? "";

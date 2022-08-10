@@ -1,6 +1,12 @@
- [demo social](https://krit-amity.github.io/asc-ui-kit-web-demo/social)  
- [demo chat](https://krit-amity.github.io/asc-ui-kit-web-demo/chat)
+[demo](https://krit-amity.github.io/asc-ui-kit-web-demo)
 
-Auto login `http://localhost:3001/social?id={id}&region={region}&network={network}`
+| params      | value            |
+| ----------- | ---------------- |
+| `page`      | `social`, `chat` |
+| `region`    | `SG`, `EU`       |
+| `id`        | user id          |
+| `network`   | network id       |
+| `authToken` | auth Token       |
 
-
+example url 
+`http://localhost:3001/social?id={id}&region={region}&network={network}`
