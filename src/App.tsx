@@ -1,5 +1,5 @@
 import "./styles.css";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 import {
   AmityUiKitProvider,
@@ -9,6 +9,7 @@ import {
 } from "@amityco/ui-kit-open-source";
 
 import Login from "./Login";
+import { NotiTray } from "./pages/NotiTray";
 
 const initState = () => {
   const url = window.location.href;
@@ -31,6 +32,13 @@ export default function App() {
     page?: string;
   }>(initState);
 
+  const renderpage = useMemo(() => {
+    let renderpage = <AmityUiKitSocial />;
+    if (state.page === "chat") renderpage = <AmityUiKitChat />;
+    if (state.page === "notitray") renderpage = <NotiTray />;
+    return renderpage;
+  }, [state.page]);
+
   return (
     <div className="App">
       {!state.id ? (
@@ -42,7 +50,7 @@ export default function App() {
           userId={state.id}
           authToken={state.authToken}
         >
-          {state.page === "chat" ? <AmityUiKitChat /> : <AmityUiKitSocial />}
+          {renderpage}
         </AmityUiKitProvider>
       )}
     </div>
