@@ -6,7 +6,8 @@ import {
   AmityUiKitSocial,
   AmityUiKitChat,
   // @ts-ignore
-} from "@amityco/ui-kit-open-source";
+  // } from "@amityco/ui-kit-open-source";
+} from "@amityco/ui-kit";
 
 import Login from "./Login";
 import { NotiTray } from "./pages/NotiTray";
