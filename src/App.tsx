@@ -10,7 +10,7 @@ import {
 } from "@amityco/ui-kit";
 
 import Login from "./Login";
-import { NotiTray } from "./pages/NotiTray";
+// import { NotiTray } from "./pages/NotiTray";
 
 const initState = () => {
   const url = window.location.href;
@@ -36,7 +36,7 @@ export default function App() {
   const renderpage = useMemo(() => {
     let renderpage = <AmityUiKitSocial />;
     if (state.page === "chat") renderpage = <AmityUiKitChat />;
-    if (state.page === "notitray") renderpage = <NotiTray />;
+    // if (state.page === "notitray") renderpage = <NotiTray />;
     return renderpage;
   }, [state.page]);
 
