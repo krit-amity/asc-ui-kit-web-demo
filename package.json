@@ -4,7 +4,7 @@
   "private": true,
   "main": "./src/index.tsx",
   "dependencies": {
-    "@amityco/ui-kit-open-source": "krit-amity/asc-ui-kit-web#build/main",
+    "@amityco/ui-kit": "krit-amity/asc-ui-kit-web#build/main",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
