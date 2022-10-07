@@ -1,16 +1,22 @@
 import axios from "axios";
-import { useEffect, useState, VFC } from "react";
+import { useEffect, useState, FC } from "react";
 // @ts-ignore
-import { useAmitySDK } from "@amityco/ui-kit-open-source";
 
-export const NotiTray: VFC = () => {
+import {
+  AmityUserTokenManager,
+  ApiRegion,
+  // @ts-ignore
+} from "@amityco/js-sdk";
+
+export const NotiTray: FC = () => {
   const [state, setState] = useState([]);
-  const sdk = useAmitySDK();
-  const { accessToken, connected } = sdk;
   useEffect(() => {
-    // no accessToken from sdk
-    console.log("onLanding",sdk);
     const onLanding = async () => {
+      const { accessToken } = await AmityUserTokenManager.createAuthToken(
+        "",
+        ApiRegion.SG,
+        { userId: "test", displayName: "test" }
+      );
       if (accessToken) {
         const res = await axios.get(
           "https://beta.amity.services/notifications/history",
@@ -21,7 +27,7 @@ export const NotiTray: VFC = () => {
         console.log(res.data);
       }
     };
-   // onLanding();
-  }, [accessToken, connected]);
+    onLanding();
+  }, []);
   return <div>notifications</div>;
 };
