@@ -6,13 +6,13 @@ export const PageSwitch = () => {
   return (
     <div style={{ flexDirection: "row", display: "flex" }}>
       <Link to={`social?${paramsStr}`}>
-        <div style={{ margin: 16 }}>Social</div>
+        <div style={{ margin: 12 }}>Social</div>
       </Link>
       <Link to={`chat?${paramsStr}`}>
-        <div style={{ margin: 16 }}>Chat</div>
+        <div style={{ margin: 12 }}>Chat</div>
       </Link>
       <Link to={`notitray?${paramsStr}`}>
-        <div style={{ margin: 16 }}>NotiTray</div>
+        <div style={{ margin: 12 }}>NotiTray</div>
       </Link>
     </div>
   );
