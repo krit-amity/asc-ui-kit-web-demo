@@ -1,33 +1,39 @@
-import axios from "axios";
 import { useEffect, useState, FC } from "react";
-// @ts-ignore
-
 import {
   AmityUserTokenManager,
-  ApiRegion,
   // @ts-ignore
 } from "@amityco/js-sdk";
+import { useSearchParams } from "react-router-dom";
+import { axiosBetaSetToken } from "../app/axiosBeta";
+import { getNotificationHistory } from "../app/notificationTray";
 
 export const NotiTray: FC = () => {
-  const [state, setState] = useState([]);
+  const [searchParams] = useSearchParams();
+  const network = searchParams.get("network");
+  const userId = searchParams.get("userId");
+  const region = searchParams.get("region");
+  const [state, setState] = useState("hello");
   useEffect(() => {
     const onLanding = async () => {
       const { accessToken } = await AmityUserTokenManager.createAuthToken(
-        "",
-        ApiRegion.SG,
-        { userId: "test", displayName: "test" }
+        network,
+        region,
+        { userId }
       );
       if (accessToken) {
-        const res = await axios.get(
-          "https://beta.amity.services/notifications/history",
-          {
-            headers: { Authorization: `Bearer ${accessToken}` },
-          }
-        );
-        console.log(res.data);
+        axiosBetaSetToken(accessToken);
+        const res = await getNotificationHistory();
+
+        console.log(JSON.stringify(res.data));
+        setState(JSON.stringify(res.data, null, "\t"));
       }
     };
-    onLanding();
+    onLanding().catch((_) => {});
   }, []);
-  return <div>notifications</div>;
+  return (
+    <div>
+      notifications
+      <div>{state}</div>
+    </div>
+  );
 };
