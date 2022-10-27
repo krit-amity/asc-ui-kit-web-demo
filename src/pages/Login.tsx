@@ -1,4 +1,4 @@
-export default function Login({
+export function Login({
   onSubmit = (data: { id: string; network: string; region: string }) => {},
 }) {
   const handleSubmit = (e: any) => {

@@ -7,8 +7,9 @@ import {
   // @ts-ignore
 } from "@amityco/ui-kit";
 
-import Login from "./Login";
+import { Login } from "./pages/Login";
 import { NotiTray } from "./pages/NotiTray";
+import { PageSwitch } from "./components/PageSwitch";
 
 const MainApp = () => {
   const [searchParams] = useSearchParams();
@@ -23,6 +24,7 @@ const MainApp = () => {
       userId={userId}
       authToken={authToken}
     >
+      <PageSwitch />
       <Routes>
         <Route path="chat" element={<AmityUiKitChat />} />
         <Route path="social" element={<AmityUiKitSocial />} />
