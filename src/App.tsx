@@ -1,5 +1,11 @@
 import "./styles.css";
-import { HashRouter, Route, Routes, useSearchParams } from "react-router-dom";
+import {
+  HashRouter,
+  Navigate,
+  Route,
+  Routes,
+  useSearchParams,
+} from "react-router-dom";
 import {
   AmityUiKitProvider,
   AmityUiKitSocial,
@@ -41,6 +47,7 @@ export default function App() {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/*" element={<MainApp />} />
+          <Route path="/" element={<Navigate to="/login" />} />
         </Routes>
       </HashRouter>
     </div>
